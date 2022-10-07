@@ -16,7 +16,6 @@ class CreateWalletStatusTable extends Migration
         Schema::create('wallet_status', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
             $table->timestamps();
             $table->softDeletesTz($column = 'deleted_at');
         });
