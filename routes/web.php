@@ -25,3 +25,6 @@ $router->get( '/', function () {
 
 $router->post('user-register', 'UserController@register');
 $router->post('wallet-recharge', 'WalletController@recharge');
+$router->post('pay', 'PaymentController@pay');
+
+$router->post('conformation-pay/{url}', 'PaymentController@confirmation');

@@ -516,7 +516,7 @@
                                                                                             <tbody>
                                                                                                 <tr>
                                                                                                     <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                                                                                                        <h1>Showcase your products.</h1>
+                                                                                                        <h1>Validación de compra</h1>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             </tbody>
@@ -567,9 +567,9 @@
                                                                                             <tbody>
                                                                                                 <tr>
                                                                                                     <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                                                                                                        <h3>Feature the star of your collection first.</h3>
-                                                                                                        <p>To get started, replace the image above with a striking product photo to catch people's attention.</p>
-                                                                                                        <p>Then, describe what makes your product unique, useful, or gift-worthy. Be sure to highlight the main features, and let people know where it's available.</p>
+                                                                                                        <h3>Pasos de tu compra</h3>
+                                                                                                        <p>Copia el token y envialo (como es pruebas debes copiar el url que se te pondrá para el envio)</p>
+                                                                                                        <p><?= $data->session ?></p>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             </tbody>
@@ -593,7 +593,7 @@
                                                                                 <tbody>
                                                                                     <tr>
                                                                                         <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Helvetica; font-size: 18px; padding: 18px;">
-                                                                                            <a class="mcnButton " title="Start Shopping" href="#" target="_blank" style="font-weight: bold;letter-spacing: -0.5px;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Start Shopping</a>
+                                                                                            <a class="mcnButton " title="<?= $data->token ?>" style="font-weight: bold;letter-spacing: -0.5px;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;"><?= $data->token ?></a>
                                                                                         </td>
                                                                                     </tr>
                                                                                 </tbody>

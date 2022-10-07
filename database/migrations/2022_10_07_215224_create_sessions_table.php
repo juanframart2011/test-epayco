@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaymentsTable extends Migration
+class CreateSessionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('sessions', function (Blueprint $table) {
             $table->id();
-            $table->decimal('amount', 12, 2)->default(0);
-            $table->timestamps();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->text('payload');
             $table->softDeletesTz($column = 'deleted_at');
-
-            $table->foreignIdFor(\App\Models\PaymentStatu::class)->default(2);
-            $table->foreignIdFor(\App\Models\Token::class);
-            $table->foreignIdFor(\App\Models\Wallet::class);
+            $table->timestamps();
         });
     }
 
@@ -32,6 +31,6 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('sessions');
     }
 }

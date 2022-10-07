@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
@@ -47,6 +45,7 @@ class WalletController extends Controller
 
                 if( count( $userDetail ) == 0 ){
 
+                    DB::rollback();
                     return response()->json(['success' => false, 'cod_error' => 'usuario no existe','message_error' => 'Lo datos proporcionado no existe nadie'], 200);
                 }
 

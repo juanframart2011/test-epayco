@@ -19,8 +19,7 @@ class CreateTokensTable extends Migration
             $table->string('name', 6);
             $table->timestamps();
             $table->softDeletesTz($column = 'deleted_at');
-            $table->foreignIdFor(\App\Models\TokenStatu::class);
-            #$table->foreign('tokenStatu_id')->references('id')->on('token_status');
+            $table->foreignIdFor(\App\Models\TokenStatu::class)->default(1);
         });
     }
 

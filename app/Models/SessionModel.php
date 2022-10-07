@@ -8,17 +8,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Payment extends Model
+class SessionModel extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public $table = 'sessions';
+
     protected $fillable = [
         'id',
-        'wallet_id',
-        'token_id',
+        'payload',
+        'user_id',
+        'last_activity',
         'created_at',
-        'updated_at',
-        'deleted_at'
+        'updated_at'
     ];
 
     protected $hidden = [

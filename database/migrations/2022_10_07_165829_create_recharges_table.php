@@ -20,7 +20,6 @@ class CreateRechargesTable extends Migration
             $table->timestamps();
             $table->softDeletesTz($column = 'deleted_at');
             $table->foreignIdFor(\App\Models\Wallet::class);
-            #$table->foreign('wallet_id')->references('id')->on('wallets');
         });
     }
 

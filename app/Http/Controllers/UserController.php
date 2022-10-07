@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
@@ -21,13 +19,14 @@ class UserController extends Controller
             'name.required' => 'El nombre del cliente es obligatorio',
             'document.required' => 'El documento es obligatorio',
             'email.required' => 'El email es obligatorio',
+            'email.unique' => 'El email ya existe es obligatorio',
             'phone.required' => 'El Número telefonico es obligatorio',
         ];
 
         $validate = Validator::make( $request->all(), [
             'name' => 'required',
             'document' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'phone' => 'nullable|numeric',
         ], $messages );
 
