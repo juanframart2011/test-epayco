@@ -24,4 +24,9 @@ class Payment extends Model
     protected $hidden = [
         'id'
     ];
+
+    public function wallet()
+    {
+        return $this->belongsTo( 'App\Models\Wallet', 'wallet_id', 'id' );
+    }
 }

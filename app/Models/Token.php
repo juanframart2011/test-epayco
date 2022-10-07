@@ -22,4 +22,9 @@ class Token extends Model
     protected $hidden = [
         'id'
     ];
+
+    public function payment()
+    {
+        return $this->belongsTo( 'App\Models\Payment', 'id', 'token_id' );
+    }
 }
