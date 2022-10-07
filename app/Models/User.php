@@ -20,7 +20,7 @@ class User extends Model implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'name', 'email', 'phone', 'document'
     ];
 
     /**
