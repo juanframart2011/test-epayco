@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTokensTable extends Migration
+class CreateRechargesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('tokens', function (Blueprint $table) {
+        Schema::create('recharges', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('tokenStatu_id')->default(1);
-            $table->string('token', 6);
+            $table->unsignedBigInteger('wallet_id');
+            $table->decimal('amount', 12, 2)->default(0);
             $table->timestamps();
             $table->softDeletesTz($column = 'deleted_at');
-            $table->foreign('tokenStatu_id')->references('id')->on('token_status');
+            $table->foreign('wallet_id')->references('id')->on('wallets');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateTokensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tokens');
+        Schema::dropIfExists('recharges');
     }
 }

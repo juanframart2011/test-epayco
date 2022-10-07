@@ -15,7 +15,9 @@ class CreatePaymentStatusTable extends Migration
     {
         Schema::create('payment_status', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
+            $table->softDeletesTz($column = 'deleted_at');
         });
     }
 
