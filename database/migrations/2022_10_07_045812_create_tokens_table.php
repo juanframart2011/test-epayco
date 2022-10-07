@@ -15,11 +15,12 @@ class CreateTokensTable extends Migration
     {
         Schema::create('tokens', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('tokenStatu_id')->default(1);
-            $table->string('token', 6);
+            #$table->unsignedBigInteger('tokenStatu_id')->default(1);
+            $table->string('name', 6);
             $table->timestamps();
             $table->softDeletesTz($column = 'deleted_at');
-            $table->foreign('tokenStatu_id')->references('id')->on('token_status');
+            $table->foreignIdFor(\App\Models\TokenStatu::class);
+            #$table->foreign('tokenStatu_id')->references('id')->on('token_status');
         });
     }
 

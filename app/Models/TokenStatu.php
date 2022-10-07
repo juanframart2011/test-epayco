@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Token extends Model
+class TokenStatu extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public $table = 'token_status';
 
     protected $fillable = [
         'id',

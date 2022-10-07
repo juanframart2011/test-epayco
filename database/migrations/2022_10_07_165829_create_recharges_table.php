@@ -15,11 +15,12 @@ class CreateRechargesTable extends Migration
     {
         Schema::create('recharges', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('wallet_id');
+            #$table->unsignedBigInteger('wallet_id');
             $table->decimal('amount', 12, 2)->default(0);
             $table->timestamps();
             $table->softDeletesTz($column = 'deleted_at');
-            $table->foreign('wallet_id')->references('id')->on('wallets');
+            $table->foreignIdFor(\App\Models\Wallet::class);
+            #$table->foreign('wallet_id')->references('id')->on('wallets');
         });
     }
 
