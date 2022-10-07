@@ -44,4 +44,9 @@ class User extends Model implements JWTSubject
     {
         return [];
     }
+
+    public function wallet()
+    {
+        return $this->belongsTo( 'App\Models\Wallet', 'id', 'user_id' );
+    }
 }
